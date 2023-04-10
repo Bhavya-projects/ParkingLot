@@ -7,7 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.Parkinglot_detail {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Parkinglot {
+  display: grid;
+  width: 100px;
+  grid-template-columns: 2fr 2fr 1fr;
+
+}
+
+.ParkinglotNE {
+  display: none;
+}
+
+.EmtyP {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  color: red;
+}
+
+.parking {
+  border: 2px solid red;
+  padding: 8px 16px;
 }
