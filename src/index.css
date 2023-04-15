@@ -24,6 +24,7 @@ body {
 .Parkinglot {
   display: grid;
   width: 100px;
+  height: auto;
   grid-template-columns: 2fr 2fr 1fr;
 
 }
@@ -43,4 +44,22 @@ body {
 .parking {
   border: 2px solid red;
   padding: 8px 16px;
+}
+.DLTbtn{
+  display: none !important;
+}
+.parking:hover + .DLTbtn, .DLTbtn:hover{
+  display: inline-block !important;
+  position: absolute;
+  padding: 2px;
+  float: right;
+}
+.fa{
+  background-color: red !important;
+  border: none !important;
+  color: white !important;
+  padding: 2px !important;
+}
+.fa-trash{
+  margin-right: 2px !important;
 }

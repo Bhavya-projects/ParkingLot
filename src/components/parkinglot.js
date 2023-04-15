@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 const ParkingLot = () => {
   const [carno, setCarno] = useState("");
   const [data, setData] = useState(['23A', '23B']);
+  const [show, setShow] = useState(false);
+  const [editIndex, setEditIndex] = useState();
   const handleClick = () => {
     if (carno.length !== 0) {
       setData(newData => [...newData, carno]);
@@ -13,6 +15,15 @@ const ParkingLot = () => {
     data.splice(index, 1);
     setData([...data]);
   }
+  const handleEdit = (i) => {
+    setCarno(data[i]);
+    setShow(true);
+    setEditIndex(i);
+  }
+  const handleUpdate = () => {
+    data.splice(editIndex,1,carno);
+    setData([...data]);
+  }
   return (
     <div className="Container">
       <div className='Parkinglot'>
@@ -20,9 +31,15 @@ const ParkingLot = () => {
           <h1>Parking lot Empty</h1>
         </div>
         {data.map((val, i) =>
-          <div className='parking'>
-            <div className='car-park'>{val}</div>
-            <button onClick={() => handleDelete(i)}>Delete</button>
+          <div>
+            <div className='parking'>
+              <div className='car-park'>{val}</div>
+            </div>
+            <div className='DLTbtn'>
+            <i onClick={() => handleDelete(i)} class="fa fa-trash" aria-hidden="true"></i>
+            <i onClick={() => handleEdit(i)} class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            {/* <button className='DLTbtn' onClick={() => handleDelete(i)}>Delete</button> */}
+            </div>
           </div>
         )}
       </div>
@@ -32,7 +49,7 @@ const ParkingLot = () => {
         </div>
         <div>
           <input value={carno} onChange={(e) => setCarno(e.target.value)} />
-          <button onClick={handleClick}>Park</button>
+          {!show ?<button onClick={handleClick}>Park</button> : <button onClick={handleUpdate}>UPDATE</button>}
         </div>
       </div>
     </div>
