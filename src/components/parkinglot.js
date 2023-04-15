@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ParkingLot = () => {
   const [carno, setCarno] = useState("");
-  const [data, setData] = useState(['23A', '23B']);
+  const [data, setData] = useState(['MH-23-CG-5234', 'MH-34-CG-3424']);
   const [show, setShow] = useState(false);
   const [editIndex, setEditIndex] = useState();
   const plateRegex = /^[A-Z]{2}-[0-9]{2}-[A-Z]{2}-[0-9]{4}$/;
