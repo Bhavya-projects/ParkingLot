@@ -44,6 +44,7 @@ body {
 .parking {
   border: 2px solid red;
   padding: 8px 16px;
+  white-space: nowrap;
 }
 .DLTbtn{
   display: none !important;

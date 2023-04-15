@@ -5,8 +5,9 @@ const ParkingLot = () => {
   const [data, setData] = useState(['23A', '23B']);
   const [show, setShow] = useState(false);
   const [editIndex, setEditIndex] = useState();
+  const plateRegex = /^[A-Z]{2}-[0-9]{2}-[A-Z]{2}-[0-9]{4}$/;
   const handleClick = () => {
-    if (carno.length !== 0) {
+    if (carno.length !== 0 && plateRegex.test(carno)) {
       setData(newData => [...newData, carno]);
       setCarno("");
     }
